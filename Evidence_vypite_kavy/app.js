@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Funkce pro aktualizaci textového zobrazení hodnoty slideru
     window.updateTextInput = function(rangeInput, labelId) {
         const labelElement = document.getElementById(labelId);
         if (labelElement) {
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Odesílání dat na server pomocí AJAX
     function sendDataToServer(formData) {
         return fetch('/procedure.php?cmd=saveDrinks', {
             method: 'POST',
@@ -26,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Funkce pro uložení dat do localStorage
     function saveData(formData) {
         let drinksData = JSON.parse(localStorage.getItem('drinksData')) || {};
 
@@ -50,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('drinksData', JSON.stringify(drinksData));
     }
 
-    // Odesílání dat po kliknutí na odesílací tlačítko
     document.getElementById('coffeeForm').addEventListener('submit', function(event) {
         event.preventDefault(); 
 
@@ -79,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     });
 
-    // Zobrazení výsledků z localStorage
     document.getElementById('showResults').addEventListener('click', () => {
         const drinksData = JSON.parse(localStorage.getItem('drinksData')) || {};
         const resultsDiv = document.getElementById('results');
